@@ -23,7 +23,10 @@ btn.addEventListener('click', searchPokemon);
 
 function MakeDisplay(data)
 {
-  document.getElementById("results").firstChild ? document.getElementById("results").removeChild(document.getElementById("results").firstChild) : null;
+  while (document.getElementById("results").firstChild)
+  {
+    document.getElementById("results").removeChild(document.getElementById("results").firstChild);
+  }
   let t = document.createElement("table");
   t.innerHTML = `<tr><td> Name </td><td> ID </td><td> Info </td></tr>`; 
   t.innerHTML += `<tr><td> ${data.name} </td><td> ${data.id} </td><td> <ul> <li> Type: ${printList(data.types)}</li><li> Height: ${data.height}</li><li> Weight: ${data.weight}</li> </ul> </td></tr>`;
@@ -50,11 +53,16 @@ async function getTypes(e)
 {
   const { data } = await axios.get(e.currentTarget.id);
 
-  let txt = " ";
+  let list = document.createElement("ol");
+  data.pokemon.forEach(e => {list.innerHTML += `<li class="pokemon">${e.pokemon.name}</li>`});
+  document.getElementById("results").appendChild(list);
+  Array.from(document.getElementsByClassName("pokemon")).forEach(e => {e.addEventListener('click', (event) => {txt.value = event.currentTarget.innerHTML; searchPokemon();})});
+
+  let alertTxt = " ";
   let counter = 0;
 
-  data.pokemon.forEach(e => {counter++; txt += (`${counter} )  ${e.pokemon.name}
+  data.pokemon.forEach(e => {counter++; alertTxt += (`${counter} )  ${e.pokemon.name}
   `)});
 
-  window.alert(txt);
+  window.alert(alertTxt);
 }
