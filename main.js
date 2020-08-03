@@ -2,9 +2,21 @@ const btn = document.getElementById("searchButon");
 const txt = document.getElementById("search");
 
 const searchPokemon = async () => {
-  const { data } = txt.value ? await axios.get(`http://pokeapi.co/api/v2/pokemon/${txt.value}`) : {data : "Enter a name or id"};
-  console.log(data)
-  MakeDisplay(data);
+  if (txt.value)
+  {
+    try {
+      const { data } = await axios.get(`http://pokeapi.co/api/v2/pokemon/${txt.value}`);
+      MakeDisplay(data);
+    }
+    catch{
+      window.alert("Does Not Exist");
+    } 
+  }
+  else 
+  {
+    window.alert("Enter a name or id");
+  }
+ 
 };
 
 btn.addEventListener('click', searchPokemon);
