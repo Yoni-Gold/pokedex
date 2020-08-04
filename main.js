@@ -53,6 +53,8 @@ async function getTypes(e)
 {
   const { data } = await axios.get(e.currentTarget.id);
 
+  document.getElementById("results").children[1] ? document.getElementById("results").children[1].remove() : null;
+
   let list = document.createElement("ol");
   data.pokemon.forEach(e => {list.innerHTML += `<li class="pokemon">${e.pokemon.name}</li>`});
   document.getElementById("results").appendChild(list);
