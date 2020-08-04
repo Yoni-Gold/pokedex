@@ -59,9 +59,8 @@ async function getTypes(e)
   Array.from(document.getElementsByClassName("pokemon")).forEach(e => {e.addEventListener('click', (event) => {txt.value = event.currentTarget.innerHTML; searchPokemon();})});
 
   let alertTxt = " ";
-  let counter = 0;
 
-  data.pokemon.forEach(e => {counter++; alertTxt += (`${counter} )  ${e.pokemon.name}
+  data.pokemon.forEach((e, i) => {alertTxt += (`${i + 1} )  ${e.pokemon.name}
   `)});
 
   window.alert(alertTxt);
