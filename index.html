@@ -17,23 +17,23 @@
         cursor: pointer;
       }
 
-      .main {
-        background-image: url("./Battlefield.png");
-        /* position: absolute; */
-        width: 500px;
-        height: 500px; 
-        
+      .typelist {
+        width: fit-content;
+      }
+      
+      .typelist li:hover {
+        border: 2px solid black;
       }
     </style>
     <title>Pokedex</title>
 </head>
 <body>
-  <div calss="main">AAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-  <input id="search" />
+  <div class="main">
+  <input id="search" placeholder="Enter pokemon name or ID"/>
   <button id="searchButon">Search</button>
   <div id="results">
   </div>
-
+</div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- todo later: use a local copy installed via npm -->
   <script src="./main.js"></script>  <!-- todo: change to type:module -->
 </body>

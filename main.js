@@ -57,6 +57,7 @@ async function getTypes(e)
   document.getElementById("results").children[1] ? document.getElementById("results").children[1].remove() : null;
 
   let list = document.createElement("ol");
+  list.className = "typelist";
   data.pokemon.forEach(e => {list.innerHTML += `<li class="pokemon">${e.pokemon.name}</li>`});
   document.getElementById("results").appendChild(list);
   Array.from(document.getElementsByClassName("pokemon")).forEach(e => {e.addEventListener('click', (event) => {txt.value = event.currentTarget.innerHTML; searchPokemon();})});
