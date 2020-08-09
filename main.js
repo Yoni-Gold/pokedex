@@ -5,7 +5,8 @@ const searchPokemon = async () => {
   if (txt.value)
   {
     try {
-      const { data } = await axios.get(`http://pokeapi.co/api/v2/pokemon/${txt.value}`);
+      const data = await fetch(`http://pokeapi.co/api/v2/pokemon/${txt.value}`).then(response => response.json());
+     //const { data } = await axios.get(`http://pokeapi.co/api/v2/pokemon/${txt.value}`);
       console.log(data);
       MakeDisplay(data);
     }

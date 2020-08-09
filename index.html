@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <style type="text/css">
       table, th, td {
         border: 1px solid black;
         text-align: center;
@@ -16,14 +16,24 @@
       .pokemon {
         cursor: pointer;
       }
+
+      .main {
+        background-image: url("./Battlefield.png");
+        /* position: absolute; */
+        width: 500px;
+        height: 500px; 
+        
+      }
     </style>
     <title>Pokedex</title>
 </head>
 <body>
+  <div calss="main">AAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
   <input id="search" />
   <button id="searchButon">Search</button>
   <div id="results">
   </div>
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- todo later: use a local copy installed via npm -->
   <script src="./main.js"></script>  <!-- todo: change to type:module -->
 </body>
